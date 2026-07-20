@@ -1,4 +1,4 @@
-# mm-decoder
+# lenz-decoder
 
 ### A no-std Rust crate for decoding Lenz (pre-DCC) protocol.
 
