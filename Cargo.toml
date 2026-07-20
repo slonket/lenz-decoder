@@ -1,6 +1,6 @@
 [package]
 name = "lenz-decoder"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Ava Wolfe <ava.codie.wolfe@gmail.com>"]
 description = "A no-std Rust crate for decoding Lenz (pre-DCC) protocol"
