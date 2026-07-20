@@ -111,14 +111,19 @@ pub struct LenzAccessoryCommand {
 
 impl LenzAccessoryCommand {
 
-    /// Decimal address of the [`LenzAccessoryCommand`].
-    pub fn address(&self) -> u8 {
-        0
+    /// Decimal address of the [`LenzAccessoryCommand`] (0-511).
+    pub fn address(&self) -> u16 {
+        let low = (self.data[0] & 0b0011_1111) as u16;
+        let high = ((!self.data[1] & 0b0111_0000) as u16) << 2;
+        high | low
     }
 
     /// Provides the accessory port (0..7) and its corresponding state.
     pub fn output(&self) -> (u8, bool) {
-        (0, false)
+        let port = self.data[1] & 0b0000_0111;
+        let state = self.data[1] & 0b0000_1000 != 0;
+
+        (port, state)
     }
 
 }
